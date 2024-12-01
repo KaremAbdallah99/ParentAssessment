@@ -1,0 +1,49 @@
+<section class="my-5">
+  <div class="login m-auto d-flex">
+    <img src="../../../assets/images/Rectangle Copy.png" alt="">
+    <div class="login-form m-auto w-100">
+      <h3>Welcome back!</h3>
+      <p class="description">Please login to access your <span>Spaces</span>  Dashboard</p>
+      <form [formGroup]="loginForm" (ngSubmit)="sendLogin(loginForm)">
+        <div class="d-flex flex-column">
+          <label for="">Email Address</label>
+          <input (keyup)="emailValid()"
+            [ngClass]="loginForm.get('email')?.errors&&loginForm.get('email')?.touched ||isError||isInputValid?'input-error':''"
+            formControlName="email" class="my-1" type="text" placeholder="Write your email...">
+          <div class="height-validation">
+            <div *ngIf="loginForm.get('email')?.errors&&loginForm.get('email')?.touched ||isInputValid"
+              class="hint-error">
+              <p *ngIf="loginForm.get('email')?.errors?.['required']" class="mb-0">Email is requierd</p>
+              <p *ngIf="loginForm.get('email')?.errors?.['pattern']" class="mb-0">Email pattern invalid</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column pt-1">
+          <label for="">Password</label>
+          <div class="position-relative">
+            <input (keyup)="passwordValid()"
+              [ngClass]="loginForm.get('password')?.errors&&loginForm.get('password')?.touched||isError||isPassValid ?'input-error':''"
+              formControlName="password" class="my-1 w-100" [type]="!isShows?'password':'text'"
+              placeholder="Write your password...">
+              <i [ngClass]="{'d-none': isShows}" (click)="toggleShowPassword()" class="position-absolute show-icon  fa-solid fa-eye"></i>
+              <i [ngClass]="{'d-none': !isShows}" (click)="toggleShowPassword()"  class="position-absolute show-icon fa-solid fa-eye-slash"></i>
+          </div>
+          <div class="height-validation mb-2">
+            <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched ||isPassValid"
+              class=" hint-error">
+              <p *ngIf="loginForm.get('password')?.errors?.['required']" class="mb-0">Password is requierd</p>
+            </div>
+            <div *ngIf="isError" class="hint-error">
+              <p class="mb-0 text-capitalize">{{errorMessage}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <p class="forget mb-0">Forgot password?</p>
+          <button>Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+

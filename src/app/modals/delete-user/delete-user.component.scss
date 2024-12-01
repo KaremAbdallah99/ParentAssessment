@@ -1,0 +1,26 @@
+.title {
+  p {
+    color: #7F8C8D;
+    font-size: 15px;
+  }
+  span {
+    color: #34495E;
+    font-size: 15px;
+  }
+}
+button {
+  border-radius: 20px;
+  background-color: #8E44AD;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: 15px;
+  border: none;
+  height: 40px;
+  width: 160px;
+}
+.cancel {
+  background-color: #fff;
+  color: #8E44AD;
+  border: 1px solid #8E44AD;
+}
+

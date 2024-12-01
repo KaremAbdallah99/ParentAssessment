@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: '.SF NS Display';
+  src: url('assets/fonts/_helveticaneuedeskinterface_regular.ttf') format('truetype'),
+       url('assets/fonts/_helveticaneuedeskinterface_thin.ttf') format('truetype'),
+       url('assets/fonts/_helveticaneuedeskinterface_bold.ttf') format('truetype'),
+       url('assets/fonts/_helveticaneuedeskinterface_ultralightp2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("../node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+
+body {
+  background-color: #F5F5F5 !important;
+  margin: 0 !important;
+  font-family: ".SF NS Display" !important;
+}

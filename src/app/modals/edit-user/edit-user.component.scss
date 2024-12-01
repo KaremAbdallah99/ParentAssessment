@@ -1,0 +1,52 @@
+.modal-icon {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    width: 103px;
+    height: 103px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+  }
+}
+form {
+  label {
+    color: #7F8C8D;
+    font-size: 14px;
+  }
+  input {
+    padding: 7px 12px;
+    border: 1px solid #D6DBE4;
+    border-radius: 3px;
+    background-color: #FFFFFF !important;
+    color: #7F8C8D !important;
+    font-size: 15px;
+    margin-bottom: 15px !important;
+    &::placeholder {
+      color: #7F8C8D;
+      font-size: 15px;
+    }
+    &:focus-visible {
+      outline: 0 !important;
+    }
+    &:focus {
+      border-color: #8E44AD;
+    }
+  }
+  button {
+    border-radius: 20px;
+    background-color: #8E44AD;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    height: 40px;
+    width: 160px;
+  }
+  .cancel {
+    background-color: #fff;
+    color: #8E44AD;
+    border: 1px solid #8E44AD;
+  }
+}

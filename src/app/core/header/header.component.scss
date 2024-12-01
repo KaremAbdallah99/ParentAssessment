@@ -1,0 +1,31 @@
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  .header {
+    height: 70px;
+    .logo {
+      width: 124px;
+    }
+    nav {
+      div {
+        gap: 2rem;
+        span {
+          color: #34495E;
+          font-size: 15px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+        button {
+          border-radius: 20px;
+          background-color: #8E44AD;
+          box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+          color: #fff;
+          font-size: 15px;
+          border: none;
+          padding: 9px 27px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

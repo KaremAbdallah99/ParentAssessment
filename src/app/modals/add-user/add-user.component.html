@@ -1,0 +1,22 @@
+<div class="mt-5">
+  <div class="modal-icon d-flex justify-content-center align-items-center">
+    <img src="../../../assets/images/icons8-user.svg" alt="">
+  </div>
+  <form [formGroup]="userForm">
+    <div class="d-flex flex-column">
+      <label for="">Name</label>
+      <input type="text" formControlName="name" class="my-1"  placeholder="Write your name...">
+    </div>
+    <div class="d-flex flex-column">
+      <label for="">Job Title</label>
+      <input type="text" formControlName="job" class="my-1"  placeholder="Write your name...">
+    </div>
+    <div class="btns d-flex justify-content-between align-items-center mt-2">
+      <button id="close-btn" (click)="resetForm()" class="cancel" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+      <button (click)="addNewUser(userForm)">Add</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- <button id="close-btn" type="button" class="btn-close d-none" data-bs-dismiss="modal" aria-label="Close"></button> -->

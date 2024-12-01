@@ -1,0 +1,112 @@
+<section>
+  <div class="page-header mb-5">
+    <div class="container d-flex justify-content-between align-items-end py-3">
+      <div class="breadcrump">
+        <p class="mb-2">Home / Dashboard</p>
+        <h4>Users List</h4>
+      </div>
+      <button data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus me-1"></i> New User </button>
+    </div>
+  </div>
+  <div class="container d-flex mb-5">
+    <div class="list-user m-auto" [ngClass]="{'no-radius': isUserGet}">
+      <div class="d-flex justify-content-between list-header">
+        <p>User</p>
+        <p class="actions">Actions</p>
+      </div>
+      <div class="main-row" *ngFor="let user of users; let i = index">
+        <div [ngClass]="{'active-row': index === i}" class="user-row d-flex justify-content-between align-items-center" (click)="openUserDiv(user.id , i)">
+          <div class="user-info d-flex align-items-center">
+            <img [src]="user.avatar" alt="">
+            <span class="ms-3 me-2">{{user.first_name}}</span>
+            <span>{{user.last_name}}</span>
+          </div>
+          <div class="user-actions d-flex align-items-center">
+            <div (click)="getUserById(user.id, $event)" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" [ngClass]="{'d-none': index === i}" class="d-flex justify-content-center align-items-center">
+              <img src="../../../assets/images/icons8-edit.svg" alt="">
+            </div>
+            <div (click)="getUserById(user.id, $event)" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" [ngClass]="{'d-none': index === i}" class="d-flex justify-content-center align-items-center ms-3 me-4">
+              <img src="../../../assets/images/icons8-delete.svg" alt="">
+            </div>
+            <i class="fa-solid fa-chevron-right icon-right"></i>
+          </div>
+        </div>
+        <div class="border-line"></div>
+      </div>
+    </div>
+    <div *ngIf="isUserGet" class="user-view">
+      <div class="text-end mb-4" (click)="closeUserDiv()">
+        <i class="fas fa-times close"></i>
+      </div>
+      <div class="text-center">
+        <img src="{{userAvatar}}" alt="">
+        <p class="mt-3 mb-4">{{userFirstName}} <span>{{userLastName}}</span></p>
+        <div class="d-flex justify-content-between align-items-center side-actions mt-3 gap-3">
+          <button (click)="closeUserDiv()" data-bs-toggle="modal" data-bs-target="#exampleModalEdit"><svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>08176270-A919-49E2-90C2-975DBC6DA334</title>
+            <desc>Created with sketchtool.</desc>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="02-User-List" transform="translate(-1154.000000, -286.000000)" fill="#fff" fill-rule="nonzero">
+                    <g id="User" transform="translate(150.000000, 250.000000)">
+                        <g id="Edit-button" transform="translate(996.000000, 28.000000)">
+                            <g id="icons8-edit" transform="translate(8.000000, 8.000000)">
+                                <path d="M12.1689963,0 C11.9669905,0 11.7647613,0.0769489737 11.6108139,0.231291158 L10.2631579,1.57894737 L13.4210526,4.73684211 L14.7687087,3.38918589 C15.0773929,3.08050161 15.0773929,2.5807155 14.7687087,2.27282068 L12.7271795,0.231291158 C12.5728374,0.0769489737 12.3710029,0 12.1689963,0 Z M9.07894737,2.76315789 L0,11.8421053 L0,15 L3.15789474,15 L12.2368421,5.92105263 L9.07894737,2.76315789 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg> Edit </button>
+          <button (click)="closeUserDiv()" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" class="delete-btn"><svg width="12px" height="15px" viewBox="0 0 12 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>58855D19-B8AB-4C54-A90D-B9DAFFDF69BE</title>
+            <desc>Created with sketchtool.</desc>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="02-User-List" transform="translate(-1200.000000, -286.000000)" fill="#8E44AD" fill-rule="nonzero">
+                    <g id="User" transform="translate(150.000000, 250.000000)">
+                        <g id="Delete-button" transform="translate(1041.000000, 28.000000)">
+                            <g id="icons8-delete" transform="translate(9.000000, 8.000000)">
+                                <path d="M4.5,0 L3.75,0.75 L0,0.75 L0,2.25 L2.25,2.25 L9.75,2.25 L12,2.25 L12,0.75 L8.25,0.75 L7.5,0 L4.5,0 Z M0.75,3.75 L0.75,13.5 C0.75,14.325 1.425,15 2.25,15 L9.75,15 C10.575,15 11.25,14.325 11.25,13.5 L11.25,3.75 L0.75,3.75 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg> Delete </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-------------  Modal for add new user --------->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-add-user></app-add-user>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------------  Modal for edit user --------->
+<div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel1" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-edit-user [name]="name" [userId]="userId" [userAvatar]="userAvatar"></app-edit-user>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-------------  Modal for delete user --------->
+<div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel2" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-delete-user [name]="name" [userId]="userId"></app-delete-user>
+      </div>
+    </div>
+  </div>
+</div>
